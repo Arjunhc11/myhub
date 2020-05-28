@@ -1,0 +1,162 @@
+<!Doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>SDK Test</title>
+</head>
+
+<body>
+  <div class="container">
+    <div style="text-align:center;">
+      <div id="menu"></div>
+      <div id="menuLegacy"></div>
+      <h2 class="form-signin-heading">
+        SDK Test
+      </h2>
+    </div>
+    <form class="form-signin" >
+      <input type="hidden" id="confirmation" name="receiptId" value="" />
+      <input type="text" id="name" class="form-control" placeholder="Your name">
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+	  <div id="purposes">
+	  
+	  </div>
+      <button id="trigger" class="btn btn-lg btn-primary btn-block" type="submit">
+        Submit form
+      </button>
+    </form>
+    <div id="sdkSettings">
+      <h4 style="text-align: center">SDK JS Settings:</h4>
+        
+    </div>
+  </div>
+
+<!-- OneTrust Consent Receipt Start -->
+<script
+  src="https://qa-ds-cdn.1trust.app/consent-receipt-scripts/scripts/otconsent-1.0.min.js"
+  type="text/javascript"
+  charset="UTF-8"
+  id="consent-receipt-script">
+  triggerId="trigger";
+  identifierId="inputEmail";
+  confirmationId="confirmation";
+  token="eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6ImM0MDJiNTYwLTljN2MtNGVkNi05ZGYzLTJiOWZiOTA0ZThhMCIsInByb2Nlc3NWZXJzaW9uIjoxLCJpYXQiOiIyMDIwLTA1LTE1VDA2OjE5OjE3LjQwNyIsIm1vYyI6IldFQl9GT1JNIiwic3ViIjoiRW1haWwiLCJpc3MiOm51bGwsInRlbmFudElkIjoiNDNkYTg1NDUtMzYxOS00ZWEwLWFiMGItYmZhZDQ3NTIzZTM1IiwiZGVzY3JpcHRpb24iOiJkZXNjIiwiY29uc2VudFR5cGUiOiJPUFRJTkNIRUNLQk9YIiwiZG91YmxlT3B0SW4iOmZhbHNlLCJwb2xpY3lfdXJpIjpudWxsLCJhbGxvd05vdEdpdmVuQ29uc2VudHMiOmZhbHNlLCJwdXJwb3NlcyI6W3siaWQiOiJhYWYwM2NmNy01NjY2LTQ1MjgtYTc4Mi1hNTIxMGY1ZGE5MDYiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119LHsiaWQiOiIwYmEwY2I5NS1iNjlmLTRiNTUtODZlYS03Zjg4N2Y1MDM1OGYiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119XSwibm90aWNlcyI6W10sImRzRGF0YUVsZW1lbnRzIjpbXX0.XG0il7WQoWyikOREpjT4t82WZH-9bSXnXK7mVxRc6kWrpzBjnKdRjjf-8ATTHxJtQD9QuKumzvhy1wpkYMgNzHoIgkC_M_G9b4cwZojnrQWsubYSYKMpvAnuxTccf9IfDIKVlyn_Cm5WRKW5jXgTAy5SdBMU02Rd4AZsZBqOFjbEBezeDt68pOLKqDnsSrbmZX7eRrfMZIQ5NwRBVu3rmH8Nms0CVbcfdtq_IKmJk3mi1VvJW9nqUUWTmyKxICseiPM4rA2Ia9O8TpaiFD0uTEVmJpssIZmzGzI4sWSkpJzSI-R_ABchlmVd1FjDK-AWGUI6vfJyc7iBcxou23BCwg";
+  settings="eyJyZWNlaXB0QXBpRW5kcG9pbnQiOiJodHRwczovL3FhLXBvcnRhbC4xdHJ1c3QuYXBwL3JlcXVlc3QvdjEvY29uc2VudHJlY2VpcHRzIiwibWFudWFsVHJpZ2dlciI6ZmFsc2UsImNvbnRpbnVlT25FcnJvciI6dHJ1ZX0=";
+</script>
+<script type="text/javascript" charset="UTF-8">
+  OneTrust.ScriptTag.Preferences = [  
+  {
+    "purpose": "aaf03cf7-5666-4528-a782-a5210f5da906",
+    "identifierAttributes": "value",
+    "identifierValues": "cat-18",
+  },  
+  {
+    "purpose": "0ba0cb95-b69f-4b55-86ea-7f887f50358f",
+    "identifierAttributes": "value",
+    "identifierValues": "cat-17",
+  }
+  ];
+</script>
+<!-- OneTrust Consent Receipt End -->
+<script type="text/javascript" charset="UTF-8">
+var language = "en-us";
+var purposes = OneTrust.ScriptTag.Preferences;
+//console.log(purposes);
+	  
+var purposesList = document.createDocumentFragment();
+purposes.forEach(function (pItem) {
+		var purposeName = pItem.identifierValues;
+		if (language != null && language != "" && language != 0) {
+		var pLabel = OneTrust.Api.GetPurposeLabel(pItem.purpose, language);
+			if (pLabel != null) {
+				purposeName = pLabel.label;
+			}
+		}
+			
+			var purpose = document.createElement('div');
+			purpose.class = "checkbox";
+			var label = getLabel(pItem, purposeName);
+			purpose.appendChild(label);
+		   
+		   var topics = pItem.topics;
+		   if (topics != undefined || topics != null) {
+				topics.forEach(function (tItem) {
+					var topicList = document.createElement('ul');
+					topicList.appendChild(getTopic(tItem, language));
+					purpose.appendChild(topicList);
+				});
+		   }
+
+			 var customPreferences = pItem.customPreferences;
+		   if (customPreferences != undefined || customPreferences != null) {
+				customPreferences.forEach(function (customPreference) {
+					customPreference.options.forEach((option) => {
+						var optionsList = document.createElement('ul');
+						optionsList.appendChild(getCustomPreferencesOptions(option, language));
+						purpose.appendChild(optionsList);
+					});
+				});
+		   }
+
+		   purposesList.appendChild(purpose);
+});
+
+document.getElementById('purposes').appendChild(purposesList);
+document.getElementById('sdkSettings').appendChild(getSDKSettings());
+
+function getCustomPreferencesOptions(optionItem, language) {
+		var optionName = optionItem.identifierValues;		
+		var optionItemLi = document.createElement('li');
+		var label = getLabel(optionItem, optionName);
+		optionItemLi.appendChild(label);
+		
+		return optionItemLi;
+}
+
+function getTopic(tItem, language) {
+		var topicName = tItem.identifierValues;
+		if (language != null && language != "" && language != 0) {
+		var tLabel = OneTrust.Api.GetTopicLabel(tItem.topic, language);
+			if (tLabel != null) {
+				topicName = tLabel.label;
+			}
+		}
+		
+		var topic = document.createElement('li');
+//		topic.class = "checkbox";
+		var label = getLabel(tItem, topicName);
+		topic.appendChild(label);
+		
+		return topic;
+		   
+}
+
+function getLabel(item, text) {
+
+	var label = document.createElement('label');
+	var input = document.createElement('input');
+	
+		input.value = item.identifierValues;
+		input.type = "checkbox";
+	label.appendChild(input);
+	var textNode = document.createTextNode(text);
+	label.appendChild(textNode);
+	return label;
+}
+
+function getSDKSettings() {
+	var booleanValue = OneTrust.ScriptTag.NoConsentTransactions;
+	var pre = document.createElement("pre");
+	var code = document.createElement("code");
+	var textNode = document.createTextNode("OneTrust.ScriptTag.NoConsentTransactions = " + booleanValue + "; \n");
+	code.appendChild(textNode);
+	pre.appendChild(code);
+	return pre;
+}
+</script>
+</body>
+
+</html>
