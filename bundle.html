@@ -1,8 +1,8 @@
 <!-- OneTrust Privacy Notice Bundle start -->
 
 <!-- Drop-down elements that will control which notice is displayed -->
-<select id="filtDropdown"></select>
-<select id="filt2Dropdown"></select>
+<select id="region2Dropdown"></select>
+<select id="region1Dropdown"></select>
 
 <!-- Button element that will trigger the notice update -->
 <button id="otnotice-bundle-button">Update</button>
@@ -11,16 +11,16 @@
 <!-- Container in which the privacy notices will be rendered -->
 <div id="otnotice-bundle-container" class="otnotice"></div>
 
-<script src="https://stagingdsadc3.blob.core.windows.net/privacy-notice-scripts/otnotice-bundle-1.0.min.js" type="text/javascript" charset="UTF-8" id="otprivacy-notice-script">
-    settings="eyJjYWxsYmFja1VybCI6Imh0dHBzOi8vcHJpdmFjeXBvcnRhbC1zdGFnaW5nLjF0cnVzdC5uaW5qYS9yZXF1ZXN0L3YxL3ByaXZhY3lOb3RpY2VzL3N0YXRzL3ZpZXdzIn0=";
-    bundleUrl="https://stagingdsadc3.blob.core.windows.net/1ccaaf4f-eca3-4ac4-8c76-44767309fc37/notice-bundles/draft/7aa35175-9a2b-447b-a19f-0551e7cc9d14.json";
+<script src="https://appds7c6e.blob.core.windows.net/privacy-notice-scripts/otnotice-bundle-1.0.min.js" type="text/javascript" charset="UTF-8" id="otprivacy-notice-script">
+    settings="eyJjYWxsYmFja1VybCI6Imh0dHBzOi8vcWEtcG9ydGFsLjF0cnVzdC5hcHAvcmVxdWVzdC92MS9wcml2YWN5Tm90aWNlcy9zdGF0cy92aWV3cyJ9";
+    bundleUrl="https://appds7c6e.blob.core.windows.net/43da8545-3619-4ea0-ab0b-bfad47523e35/notice-bundles/draft/ec41ce42-463d-4504-9dd7-da9f390b916d.json";
 </script>
 
 <script type="text/javascript" charset="UTF-8">
     OneTrust.NoticeManagerApi.Initialized.then(function() {
         OneTrust.NoticeManagerApi.InitializeOptions(
             "otnotice-bundle-container",
-            ["filtDropdown", "filt2Dropdown"],
+            ["region2Dropdown", "region1Dropdown"],
             "otnotice-bundle-button"
         );
     });
